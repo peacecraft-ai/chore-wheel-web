@@ -2,6 +2,7 @@ import './App.css';
 import { useState } from 'react';
 import Home from './Home';
 import Login from './Login';
+import SignUp from './SignUp';
 
 function App() {
 
@@ -21,6 +22,9 @@ function App() {
     if(currScreen == 'login') {
       screen = <Login/>
     }
+    else if(currScreen == 'signup') {
+      screen = <SignUp/>
+    }
 
     return (
       <div>
@@ -36,6 +40,9 @@ function App() {
         <ul>
           <li>
             <a href="#" onClick={e => changeScreen(e, 'home')}>Home</a>
+          </li>
+          <li>
+            <a href="#" onClick={e => changeScreen(e, 'signup')}>Sign Up</a>
           </li>
           <li>
             <a href="#" onClick={e => changeScreen(e, 'login')}>Log in</a>
