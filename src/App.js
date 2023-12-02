@@ -1,8 +1,6 @@
 import './App.css';
 import { useState } from 'react';
-import Home from './Home';
-import Login from './Login';
-import SignUp from './SignUp';
+import CurrScreen from './CurrScreen';
 
 function App() {
 
@@ -13,24 +11,6 @@ function App() {
   const changeScreen = (e, screen) => {
     e.preventDefault();
     setCurrScreen(screen);
-  }
-
-  //
-  function CurrScreen() {
-    let screen = <Home/>
-
-    if(currScreen == 'login') {
-      screen = <Login/>
-    }
-    else if(currScreen == 'signup') {
-      screen = <SignUp/>
-    }
-
-    return (
-      <div>
-        {screen}
-      </div>
-    );
   }
 
   //
@@ -49,7 +29,9 @@ function App() {
           </li>
         </ul>
       </div>
-      <CurrScreen/>
+      <div>
+        <CurrScreen currScreen={currScreen}/>
+      </div>
     </div>
   );
 }
