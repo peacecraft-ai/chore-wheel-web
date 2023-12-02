@@ -1,4 +1,4 @@
-export default function Login() {
+export default function Login({setToken}) {
 
     //
     const handleSubmit = e => {
@@ -21,9 +21,17 @@ export default function Login() {
                 },
             }
         )
-        .then((response) => response.json())
+        .then((response) => {
+            if(response.status == 200) {
+                return response.json()
+            }
+
+            return {error: 'error'}
+        })
         .then((data) => {
-            console.log(data);
+            if(data.access_token) {
+                setToken(data.access_token)
+            }
         })
         .catch((error) => console.log(error));
     };

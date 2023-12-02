@@ -2,13 +2,20 @@ import Home from './Home';
 import Login from './Login';
 import SignUp from './SignUp';
 
-export default function CurrScreen({currScreen}) {
-    if(currScreen == 'login') {
-        return <Login/>
-    }
-    else if(currScreen == 'signup') {
-        return <SignUp/>
-    }
+export default function CurrScreen({currScreen, setToken, token}) {
 
-    return <Home/>
+    //
+    if(token) {
+        return <Home/>
+    }
+    else {
+        if(currScreen == 'login') {
+            return <Login setToken={setToken}/>
+        }
+        else if(currScreen == 'signup') {
+            return <SignUp/>
+        }
+
+        return <Home/>
+    }
 }

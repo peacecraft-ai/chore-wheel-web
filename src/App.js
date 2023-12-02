@@ -1,36 +1,21 @@
 import './App.css';
 import { useState } from 'react';
 import CurrScreen from './CurrScreen';
+import MainNav from './MainNav';
+import useToken from './useToken';
 
 function App() {
 
   //
   const [currScreen, setCurrScreen] = useState('home');
-
-  //
-  const changeScreen = (e, screen) => {
-    e.preventDefault();
-    setCurrScreen(screen);
-  }
+  const { token, setToken } = useToken();
 
   //
   return (
     <div>
+      <MainNav setCurrScreen={setCurrScreen} token={token}/>
       <div>
-        <ul>
-          <li>
-            <a href="#" onClick={e => changeScreen(e, 'home')}>Home</a>
-          </li>
-          <li>
-            <a href="#" onClick={e => changeScreen(e, 'signup')}>Sign Up</a>
-          </li>
-          <li>
-            <a href="#" onClick={e => changeScreen(e, 'login')}>Log in</a>
-          </li>
-        </ul>
-      </div>
-      <div>
-        <CurrScreen currScreen={currScreen}/>
+        <CurrScreen currScreen={currScreen} token={token} setToken={setToken}/>
       </div>
     </div>
   );
