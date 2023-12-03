@@ -1,11 +1,18 @@
 
 //
-export default function MainNav({setCurrScreen, token}) {
+export default function MainNav({setCurrScreen, token, setToken}) {
 
     //
     const changeScreen = (e, screen) => {
         e.preventDefault()
         setCurrScreen(screen)
+    }
+
+    //
+    const logOut = e => {
+        e.preventDefault()
+        setToken(undefined)
+        setCurrScreen('home')
     }
 
     //
@@ -15,6 +22,9 @@ export default function MainNav({setCurrScreen, token}) {
                 <ul>
                     <li>
                         <a href="#" onClick={e => changeScreen(e, 'home')}>Home</a>
+                    </li>
+                    <li>
+                        <a href="#" onClick={e => logOut(e)}>Log Out</a>
                     </li>
                 </ul>
             ) : (
@@ -26,7 +36,7 @@ export default function MainNav({setCurrScreen, token}) {
                         <a href="#" onClick={e => changeScreen(e, 'signup')}>Sign Up</a>
                     </li>
                     <li>
-                        <a href="#" onClick={e => changeScreen(e, 'login')}>Log in</a>
+                        <a href="#" onClick={e => changeScreen(e, 'login')}>Log In</a>
                     </li>
                 </ul>
             )}

@@ -13,7 +13,7 @@ function App() {
   //
   return (
     <div>
-      <MainNav setCurrScreen={setCurrScreen} token={token}/>
+      <MainNav setCurrScreen={setCurrScreen} token={token} setToken={setToken}/>
       <div>
         <CurrScreen currScreen={currScreen} token={token} setToken={setToken}/>
       </div>
