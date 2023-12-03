@@ -1,4 +1,10 @@
+import { useRef } from 'react';
+
 export default function Login({setToken}) {
+
+    //
+    const errorRef = useRef(null)
+    let timeoutId = null
 
     //
     const handleSubmit = e => {
@@ -32,6 +38,16 @@ export default function Login({setToken}) {
             if(data.access_token) {
                 setToken(data.access_token)
             }
+            else {
+                clearTimeout(timeoutId)
+                errorRef.current.style.display = 'block'
+                timeoutId = setTimeout(
+                    () => {
+                        errorRef.current.style.display = 'none'
+                    },
+                    2300,
+                )
+            }
         })
         .catch((error) => console.log(error));
     };
@@ -49,6 +65,9 @@ export default function Login({setToken}) {
             </div>
             <div>
                 <input type="submit" value="Log In"/>
+            </div>
+            <div ref={errorRef} className='hidden-error'>
+                Incorrect username and password
             </div>
         </form>
     );
