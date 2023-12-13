@@ -18,7 +18,7 @@ export default function Login({setToken}) {
 
         //
         fetch(
-            "http://127.0.0.1:8000/token",
+            "http://0.0.0.0:8000/token",
             {
                 method: "POST",
                 body: `grant_type=password&username=${username}&password=${password}`,

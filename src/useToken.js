@@ -8,7 +8,13 @@ export default function useToken() {
   const [token, setToken] = useState(getToken());
 
   const saveToken = token => {
-    sessionStorage.setItem('access_token', token);
+    if(typeof token == 'undefined') {
+      sessionStorage.removeItem('access_token');
+    }
+    else {
+      sessionStorage.setItem('access_token', token);
+    }
+    
     setToken(token);
   };
 

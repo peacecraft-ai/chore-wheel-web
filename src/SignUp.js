@@ -19,7 +19,7 @@ export default function SignUp() {
 
         //
         fetch(
-            "http://127.0.0.1:8000/create-user",
+            "http://0.0.0.0:8000/create-user",
             {
                 method: "POST",
                 body: JSON.stringify({
