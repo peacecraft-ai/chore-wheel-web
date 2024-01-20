@@ -1,4 +1,5 @@
 import { useState, useRef } from 'react'
+import { API_BASE } from './Const';
 
 export default function SignUp() {
 
@@ -19,7 +20,7 @@ export default function SignUp() {
 
         //
         fetch(
-            "http://0.0.0.0:8000/create-user",
+            `${API_BASE}create-user`,
             {
                 method: "POST",
                 body: JSON.stringify({

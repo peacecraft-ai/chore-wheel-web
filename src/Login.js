@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+import { API_BASE } from './Const';
 
 export default function Login({setToken}) {
 
@@ -18,7 +19,7 @@ export default function Login({setToken}) {
 
         //
         fetch(
-            "http://0.0.0.0:8000/token",
+            `${API_BASE}token`,
             {
                 method: "POST",
                 body: `grant_type=password&username=${username}&password=${password}`,
