@@ -1,3 +1,11 @@
+# Chore Wheel Web Front-end
+
+If you want to deploy this to non-root, eg: mysite.com/cwheel, then use this in the package.json when you build:
+
+`"homepage": "/cwheel",`
+
+The rest of this README was included with create react app.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
